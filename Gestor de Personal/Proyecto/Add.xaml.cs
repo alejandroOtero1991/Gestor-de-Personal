@@ -10,28 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Proyecto
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Add.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Add : Window
     {
-        public MainWindow()
+        public Add()
         {
             InitializeComponent();
         }
 
-        Empleados e1 = new Empleados();
-        private void Add_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Add ventanaAñadir = new Add();
-            ventanaAñadir.Show();
            
-             
-        }
+                    }
     }
 }
