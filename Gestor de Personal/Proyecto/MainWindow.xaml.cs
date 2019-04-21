@@ -25,12 +25,13 @@ namespace Proyecto
             InitializeComponent();
         }
 
-        Empleados e1 = new Empleados();
+       
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             Add ventanaAñadir = new Add();
-            ventanaAñadir.Show();
-           
+            
+            ventanaAñadir.ShowDialog();
+            ListaEmpleados.Items.Add(ventanaAñadir.devolverEmpleado());
              
         }
     }

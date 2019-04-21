@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace Proyecto
 {
     /// <summary>
@@ -19,14 +20,45 @@ namespace Proyecto
     /// </summary>
     public partial class Add : Window
     {
+        Empleados e1;
         public Add()
         {
             InitializeComponent();
+
+
+
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public Empleados devolverEmpleado()
         {
-           
-                    }
+
+            e1 = new Empleados();
+            e1.Nombre = txtNombre.Text;
+            e1.Apellidos = txtApellidos.Text;
+            e1.Dni = txtDni.Text;
+            e1.Antiguedad = int.Parse(txtAntiguedad.Text);
+            e1.Edad = int.Parse(txtEdad.Text);
+            e1.Baja = (bool)chkBaja.IsChecked;
+            e1.Vacaciones = (bool)chkVacaciones.IsChecked;
+            e1.Activo = (bool)chkActivo.IsChecked;
+            return e1;
+
+        }
+        public void Añadir(object sender, RoutedEventArgs e)
+        {
+            devolverEmpleado();
+            this.Close();
+        }
+
+
+        public override string ToString()
+        {
+            return e1.Nombre;
+        }
+
+
+
+
     }
 }
