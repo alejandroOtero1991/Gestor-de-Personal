@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,16 +24,21 @@ namespace Proyecto
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-       
+           
+           
+        }
+    
+
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+
             Add ventanaAñadir = new Add();
-            
             ventanaAñadir.ShowDialog();
-            ListaEmpleados.Items.Add(ventanaAñadir.devolverEmpleado());
-             
+            ListaEmpleados.Items.Add(ventanaAñadir.devolverEmpleado().Nombre);
+
         }
+        
+       
     }
 }
