@@ -30,7 +30,7 @@ namespace Proyecto
 
         }
 
-        public Empleados devolverEmpleado()
+        public Empleados DevolverEmpleado()
         {
 
             e1 = new Empleados();
@@ -47,15 +47,15 @@ namespace Proyecto
         }
         public void Añadir(object sender, RoutedEventArgs e)
         {
-            devolverEmpleado();
+            DevolverEmpleado();
             this.Close();
         }
 
 
-        public override string ToString()
-        {
-            return e1.Nombre;
-        }
+        //public override string ToString()
+        //{
+        //    return e1.Nombre;
+        //}
 
 
 

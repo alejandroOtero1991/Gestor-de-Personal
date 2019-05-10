@@ -11,7 +11,7 @@ namespace ListaEmpleados
         {
             Add ventanaAñadir = new Add();
             List<Empleados> itemsList = new List<Empleados>();
-            itemsList.Add(ventanaAñadir.devolverEmpleado());
+            itemsList.Add(ventanaAñadir.DevolverEmpleado());
             return itemsList;
         }
     }

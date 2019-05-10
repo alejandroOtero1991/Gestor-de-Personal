@@ -11,9 +11,10 @@ namespace ListaEmpleados
         private ObservableCollection<Empleados> LoadListBoxData2()
         {
             Add ventanaAñadir = new Add();
-            ObservableCollection<Empleados> itemsList2 = new ObservableCollection<Empleados>();
-            itemsList2.Add(ventanaAñadir.devolverEmpleado());
-            return itemsList2;
+            ObservableCollection<Empleados> listacompleta = new ObservableCollection<Empleados>();
+            listacompleta.Add(ventanaAñadir.DevolverEmpleado());
+            return listacompleta;
         }
+        
     }
 }

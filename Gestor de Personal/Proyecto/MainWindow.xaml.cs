@@ -35,7 +35,7 @@ namespace Proyecto
 
             Add ventanaAñadir = new Add();
             ventanaAñadir.ShowDialog();
-            ListaEmpleados.Items.Add(ventanaAñadir.devolverEmpleado().Nombre);
+            ListaEmpleados.Items.Add(ventanaAñadir.DevolverEmpleado().Nombre);
 
         }
         

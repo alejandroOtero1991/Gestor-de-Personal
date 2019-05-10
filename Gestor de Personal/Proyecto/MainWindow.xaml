@@ -19,7 +19,18 @@
                 <MenuItem Header="Eliminar"/>
             </Menu>
         </DockPanel>
-        <ListBox Name="DatosEmpleados" HorizontalAlignment="Left" Height="374" Margin="341,35,0,0" VerticalAlignment="Top" Width="441" Grid.Column="1" ItemsSource="{Binding SelectedItem.ItemsSource, ElementName=ListaEmpleados}"/>
+        <ListBox Name="DatosEmpleados" HorizontalAlignment="Left" Height="374" Margin="341,35,0,0" VerticalAlignment="Top" Width="441" Grid.Column="1" ItemsSource="{Binding SelectedItem.ItemsSource, ElementName=ListaEmpleados}">
+
+            <ListView ItemsSource="{Binding ElementName=DatosEmpleados.Add}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    
+                    
+                </DataTemplate>
+            
+            </ListView.ItemTemplate>
+            </ListView>
+        </ListBox>
 
     </Grid>
 
