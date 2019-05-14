@@ -23,10 +23,7 @@ namespace Proyecto
     {
         public MainWindow()
         {
-            InitializeComponent();
-
-           
-           
+            InitializeComponent();    
         }
     
 
@@ -38,7 +35,10 @@ namespace Proyecto
             ListaEmpleados.Items.Add(ventanaAñadir.DevolverEmpleado().Nombre);
 
         }
-        
-       
+
+        private void ListBoxItem_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
+        }
     }
 }

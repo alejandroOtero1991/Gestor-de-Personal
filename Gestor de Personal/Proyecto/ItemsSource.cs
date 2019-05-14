@@ -7,6 +7,7 @@ namespace ListaEmpleados
     {
         
         // Bind ArrayList with the ListBox    
+
         private List<Empleados> LoadListBoxData()
         {
             Add ventanaAñadir = new Add();

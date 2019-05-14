@@ -52,11 +52,6 @@ namespace Proyecto
         }
 
 
-        //public override string ToString()
-        //{
-        //    return e1.Nombre;
-        //}
-
 
 
 
