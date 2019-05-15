@@ -25,20 +25,25 @@ namespace Proyecto
         {
             InitializeComponent();    
         }
-    
 
+        Add ventanaAñadir;
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-
-            Add ventanaAñadir = new Add();
+            ventanaAñadir = new Add();
             ventanaAñadir.ShowDialog();
-            ListaEmpleados.Items.Add(ventanaAñadir.DevolverEmpleado().Nombre);
-
+            
+            ListaEmpleados.Items.Add(ventanaAñadir.DevolverEmpleado());
+      
         }
 
-        private void ListBoxItem_SourceUpdated(object sender, DataTransferEventArgs e)
+        private void Eliminar(object sender, RoutedEventArgs e)
         {
-
+            if (ListaEmpleados.SelectedIndex > 0)
+            {
+                ListaEmpleados.Items.RemoveAt(ListaEmpleados.SelectedIndex);
+            }
         }
+
+   
     }
 }

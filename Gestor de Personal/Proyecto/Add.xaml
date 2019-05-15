@@ -13,15 +13,15 @@
         <Label Content="Dni:" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top"/>
         <Label Content="Edad:" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top"/>
         <Label Content="Antiguedad:" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="87,47,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="True"/>
-        <TextBox Name="txtApellidos" HorizontalAlignment="Left" Height="23" Margin="87,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="True"/>
-        <TextBox Name="txtDni" HorizontalAlignment="Left" Height="23" Margin="87,109,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="True"/>
-        <TextBox Name="txtEdad" HorizontalAlignment="Left" Height="23" Margin="87,138,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="True"/>
-        <TextBox Name="txtAntiguedad" HorizontalAlignment="Left" Height="23" Margin="87,168,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473"/>
-        <CheckBox Name="chkActivo" Content="Activo" IsThreeState="True" HorizontalAlignment="Left" Margin="13,219,0,0" VerticalAlignment="Top" IsChecked="True"/>
-        <CheckBox Name="chkBaja" Content="Baja" IsThreeState="True" HorizontalAlignment="Left" Margin="13,239,0,0" VerticalAlignment="Top" IsChecked="False"/>
-        <CheckBox Name="chkVacaciones" Content="Vacaciones" IsThreeState="True"  HorizontalAlignment="Left" Margin="13,259,0,0" VerticalAlignment="Top" IsChecked="False"/>
-        <Button Content="Crear" HorizontalAlignment="Left"   Margin="169,254,0,0" VerticalAlignment="Top" Width="75" Click="Añadir" IsCancel="False"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="87,47,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="True"/>
+        <TextBox x:Name="txtApellidos" HorizontalAlignment="Left" Height="23" Margin="87,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="True"/>
+        <TextBox x:Name="txtDni" HorizontalAlignment="Left" Height="23" Margin="87,109,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="True"/>
+        <TextBox x:Name="txtEdad" HorizontalAlignment="Left" Height="23" Margin="87,138,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="True"/>
+        <TextBox x:Name="txtAntiguedad" HorizontalAlignment="Left" Height="23" Margin="87,168,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473"/>
+        <CheckBox x:Name="chkActivo" Content="Activo" IsThreeState="True" HorizontalAlignment="Left" Margin="13,219,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <CheckBox x:Name="chkBaja" Content="Baja" IsThreeState="True" HorizontalAlignment="Left" Margin="13,239,0,0" VerticalAlignment="Top" IsChecked="False"/>
+        <CheckBox x:Name="chkVacaciones" Content="Vacaciones" IsThreeState="True"  HorizontalAlignment="Left" Margin="13,259,0,0" VerticalAlignment="Top" IsChecked="False"/>
+        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Left"  Margin="169,254,0,0" VerticalAlignment="Top" Width="75" Click="Añadir" IsCancel="False" IsDefault="True"/>
 
     </Grid>
 </Window>

@@ -24,10 +24,6 @@ namespace Proyecto
         public Add()
         {
             InitializeComponent();
-
-
-
-
         }
 
         public Empleados DevolverEmpleado()
@@ -43,12 +39,15 @@ namespace Proyecto
             e1.Vacaciones = (bool)chkVacaciones.IsChecked;
             e1.Activo = (bool)chkActivo.IsChecked;
             return e1;
-
+            
         }
+
+      
         public void Añadir(object sender, RoutedEventArgs e)
         {
             DevolverEmpleado();
-            this.Close();
+            this.Close() ;
+            
         }
 
 

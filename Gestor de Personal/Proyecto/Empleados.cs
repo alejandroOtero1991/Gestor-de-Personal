@@ -114,5 +114,7 @@ namespace Proyecto
             this.antiguedad = 0;
         }
 
+       
+
     }
 }
