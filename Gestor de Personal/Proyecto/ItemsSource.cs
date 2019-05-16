@@ -1,5 +1,6 @@
 ﻿using Proyecto;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace ListaEmpleados
 {
@@ -7,18 +8,19 @@ namespace ListaEmpleados
     {
 
         // Bind ArrayList with the ListBox    
-        List<Empleados> listE;
-        List<Empleados> itemsList;
-        private List<Empleados> LoadListBoxData()
+    
+
+        ObservableCollection<Empleados> itemsList; 
+
+        private ObservableCollection<Empleados> LoadListBoxData()
         {
             Add ventanaAñadir = new Add();
-           itemsList = new List<Empleados>();
+           itemsList = new ObservableCollection<Empleados>();
             itemsList.Add(ventanaAñadir.DevolverEmpleado());
             return itemsList;
         }
 
-      
+     
 
-       
     }
 }

@@ -95,10 +95,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Eliminar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,9 +106,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Eliminar.xaml.cs">
-      <DependentUpon>Eliminar.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="conexionDb.cs" />
     <Compile Include="Empleados.cs" />
     <Compile Include="ItemsSource2.cs" />
     <Compile Include="ItemsSource.cs" />

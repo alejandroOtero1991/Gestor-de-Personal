@@ -4,18 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto"
-        xmlns:ListaEmpleados="clr-namespace:ListaEmpleados" x:Class="Proyecto.MainWindow"
+        xmlns:ListaEmpleados="clr-namespace:ListaEmpleados" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Proyecto.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <local:Add x:Key="empl"/>
-        <ListaEmpleados:ItemsSource x:Key="seleccionados"/>
+        <System:String x:Key="Selected">ListaEmpleados_SelectionChanged</System:String>
     </Window.Resources>
     <Grid RenderTransformOrigin="0.735,0.537">
-        
+
         <Button Content="New" x:Name="Add" Margin="196,152,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.507,0.677" HorizontalAlignment="Left" Width="75" Click="Add_Click"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="196,224,0,0" VerticalAlignment="Top" Width="75" Click="Eliminar"/>
-        <ListBox x:Name="ListaEmpleados" HorizontalAlignment="Left" Height="384" Margin="15,35,0,0" VerticalAlignment="Top" Width="159" ItemsSource="{Binding ItemsSource, ElementName=ListaEmpleados}" SelectedItem="{Binding SelectedIndex}">
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="196,224,0,0" VerticalAlignment="Top" Width="75" Click="BtnEliminar_Click"/>
+        <ListBox x:Name="ListaEmpleados" HorizontalAlignment="Left" Height="384" Margin="15,35,0,0" VerticalAlignment="Top" Width="159" ItemsSource="{Binding ItemsSource, ElementName=ListaEmpleados}" SelectedItem="{Binding Selected, Mode=TwoWay}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2">
@@ -30,12 +29,12 @@
         </ListBox>
         <DockPanel HorizontalAlignment="Left" Height="30" LastChildFill="False" VerticalAlignment="Top" Width="792">
             <Menu Height="31" VerticalAlignment="Center" DockPanel.Dock="Top">
-                <MenuItem Header="Save"/>
-                <MenuItem Header="New" Click="Add_Click"/>
-                <MenuItem Header="Eliminar" Click="Eliminar"/>
+                <MenuItem x:Name="btnSave" Header="Save" Click="MenuItem_Click"/>
+                <MenuItem x:Name="btnNew" Header="New" Click="Add_Click"/>
+                <MenuItem x:Name="menubtnEliminar" Header="btnEliminar" Click="BtnEliminar_Click"/>
             </Menu>
         </DockPanel>
-        <ListBox x:Name="DatosEmpleados" HorizontalAlignment="Left" Height="374" Margin="341,35,0,0" VerticalAlignment="Top" Width="441" Grid.Column="1" ItemsSource="{Binding listE}">
+        <ListBox x:Name="DatosEmpleados" HorizontalAlignment="Left" Height="374" Margin="341,35,0,0" VerticalAlignment="Top" Width="441" Grid.Column="1" ItemsSource="{Binding Selected}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2">
@@ -43,7 +42,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="100" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Nombre}" />
+                        <TextBlock Text="{Binding Selected.Nombre}" />
                         <TextBlock Text="{Binding Apellidos}" />
                     </Grid>
                 </DataTemplate>
