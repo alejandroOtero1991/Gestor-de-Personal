@@ -13,7 +13,7 @@ namespace Proyecto
         private String nombre;
         private String apellidos;
         private String dni;
-        private int edad, antiguedad;
+        private int edad, antiguedad,idEmpresa;
         private bool activo, baja, vacaciones;
 
         public string Nombre {
@@ -39,6 +39,23 @@ namespace Proyecto
                 
                 if (!Int32.TryParse(value.ToString(),out edad)) {
                     value=0;
+                    //  throw new ApplicationException("Numero introducido no valido"); 
+                }
+
+            }
+        }
+
+        public int IdEmpresa
+        {
+
+            get { return idEmpresa; }
+
+            set
+            {
+
+                if (!Int32.TryParse(value.ToString(), out idEmpresa))
+                {
+                    value = 0;
                     //  throw new ApplicationException("Numero introducido no valido"); 
                 }
 

@@ -25,10 +25,12 @@ namespace Proyecto
     public partial class MainWindow : Window
     {
 
-        String dbConectionString = "@Data Source= Database1.mdf";
+       
         public MainWindow()
         {
             InitializeComponent();
+            conexionDb.GetSqlConexion();
+            
         }
 
         Add ventanaAñadir;

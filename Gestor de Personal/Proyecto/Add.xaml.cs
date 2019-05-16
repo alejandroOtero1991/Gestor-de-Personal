@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 
 namespace Proyecto
@@ -20,6 +23,7 @@ namespace Proyecto
     /// </summary>
     public partial class Add : Window
     {
+        
         Empleados e1;
         public Add()
         {
@@ -30,6 +34,7 @@ namespace Proyecto
         {
 
             e1 = new Empleados();
+            e1.IdEmpresa = int.Parse(txtId.Text);
             e1.Nombre = txtNombre.Text;
             e1.Apellidos = txtApellidos.Text;
             e1.Dni = txtDni.Text;
@@ -45,14 +50,15 @@ namespace Proyecto
       
         public void Añadir(object sender, RoutedEventArgs e)
         {
+            conexionDb.GetSqlConexion();
+            string query = "insert into [dbo].[Table] (id,DNI,Nombre,Apellidos,Edad,Antiguedad,Activo,Baja,Vacaciones) values('" + int.Parse(txtId.Text)+ "','" + txtDni.Text + "','" + txtNombre.Text+ "','" + txtApellidos.Text + "','" + int.Parse(txtEdad.Text)+ "','" + int.Parse(txtAntiguedad.Text) + "','" + (bool)chkActivo.IsChecked + "','" + (bool)chkBaja.IsChecked + "','" + (bool)chkVacaciones.IsChecked + "')";
+            conexionDb.ejecutarSql(query);
+            conexionDb.CerrarConexionDB();
             DevolverEmpleado();
             this.Close() ;
             
         }
 
-
-
-
-
+        
     }
 }

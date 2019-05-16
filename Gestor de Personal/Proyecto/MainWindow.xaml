@@ -42,7 +42,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="100" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Selected.Nombre}" />
+                        <TextBlock Text="this.FindResource(Selected)" />
                         <TextBlock Text="{Binding Apellidos}" />
                     </Grid>
                 </DataTemplate>

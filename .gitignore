@@ -8,7 +8,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-
+*.jfm
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -26,16 +26,17 @@ bld/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+*.jfm
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
-
+*.jfm
 # Visual Studio 2017 auto generated files
 Generated\ Files/
-
+*.jfm
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
-
+*.jfm
 # NUNIT
 *.VisualState.xml
 TestResult.xml
