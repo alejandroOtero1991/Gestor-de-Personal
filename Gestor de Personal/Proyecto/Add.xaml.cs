@@ -43,6 +43,8 @@ namespace Proyecto
             e1.Baja = (bool)chkBaja.IsChecked;
             e1.Vacaciones = (bool)chkVacaciones.IsChecked;
             e1.Activo = (bool)chkActivo.IsChecked;
+
+           
             return e1;
             
         }
@@ -51,9 +53,10 @@ namespace Proyecto
         public void Añadir(object sender, RoutedEventArgs e)
         {
             conexionDb.GetSqlConexion();
-            string query = "insert into [dbo].[Table] (id,DNI,Nombre,Apellidos,Edad,Antiguedad,Activo,Baja,Vacaciones) values('" + int.Parse(txtId.Text)+ "','" + txtDni.Text + "','" + txtNombre.Text+ "','" + txtApellidos.Text + "','" + int.Parse(txtEdad.Text)+ "','" + int.Parse(txtAntiguedad.Text) + "','" + (bool)chkActivo.IsChecked + "','" + (bool)chkBaja.IsChecked + "','" + (bool)chkVacaciones.IsChecked + "')";
+            string query = "insert into [dbo].[Table] (id,DNI,Nombre,Apellidos,Edad,Antiguedad,Activo,Baja,Vacaciones) values('" + int.Parse(txtId.Text) + "','" + txtDni.Text + "','" + txtNombre.Text + "','" + txtApellidos.Text + "','" + int.Parse(txtEdad.Text) + "','" + int.Parse(txtAntiguedad.Text) + "','" + (bool)chkActivo.IsChecked + "','" + (bool)chkBaja.IsChecked + "','" + (bool)chkVacaciones.IsChecked + "')";
             conexionDb.ejecutarSql(query);
             conexionDb.CerrarConexionDB();
+
             DevolverEmpleado();
             this.Close() ;
             

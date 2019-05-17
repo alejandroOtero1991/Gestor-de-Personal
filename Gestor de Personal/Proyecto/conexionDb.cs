@@ -32,6 +32,7 @@ namespace Proyecto
             SqlConnection connection = GetSqlConexion();
             SqlCommand updateTabla = new SqlCommand(sql, connection);
             updateTabla.ExecuteNonQuery();
+            
         }
         public static void CerrarConexionDB() {
             string cadenaconexion = Properties.Settings.Default.connectionString;

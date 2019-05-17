@@ -15,6 +15,7 @@ namespace Proyecto
         private String dni;
         private int edad, antiguedad,idEmpresa;
         private bool activo, baja, vacaciones;
+       
 
         public string Nombre {
 
@@ -116,8 +117,9 @@ namespace Proyecto
         public bool Baja { get => baja; set => baja = value; }
         public bool Vacaciones { get => vacaciones; set => vacaciones = value; }
 
-        public Empleados(String nombre, String apellidos, String dni, int edad, int antiguedad)
+        public Empleados( String nombre, String apellidos, String dni, int edad, int antiguedad)
         {
+            
             this.nombre = nombre;
             this.apellidos = apellidos;
             this.apellidos = dni;
@@ -125,6 +127,7 @@ namespace Proyecto
         }
         public Empleados()
         {
+            this.idEmpresa = 1;
             this.nombre = "";
             this.apellidos = "";
             this.dni = "";
@@ -133,6 +136,5 @@ namespace Proyecto
         }
 
        
-
     }
 }
