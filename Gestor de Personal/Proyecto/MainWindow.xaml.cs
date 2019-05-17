@@ -37,7 +37,7 @@ namespace Proyecto
             InitializeComponent();
            
             conexionDb.GetSqlConexion();
-            DataTable dt = conexionDb.GetTable("select Nombre from [dbo].[Table]");
+            DataTable dt = conexionDb.GetTable("select * from [dbo].[Table]");
             ListaEmpleados.ItemsSource = dt.AsDataView();
             dt.AcceptChanges();
             conexionDb.CerrarConexionDB();
@@ -49,7 +49,7 @@ namespace Proyecto
         {
             ventanaAñadir = new Add();
             ventanaAñadir.ShowDialog();
-            
+            ListaEmpleados.Items.Add(ventanaAñadir.DevolverEmpleado());
         
           
         }
@@ -59,9 +59,13 @@ namespace Proyecto
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
 
-            if (ListaEmpleados.SelectedIndex > -1) {
+            if (ListaEmpleados.SelectedIndex > -1)
+            {
 
-                ListaEmpleados.Items.RemoveAt(ListaEmpleados.SelectedIndex);
+                conexionDb.GetSqlConexion();
+                conexionDb.ejecutarSql("delete from [dbo].[Table] where Id='" + int.Parse(txtEliminar.Text) + "'");
+                conexionDb.CerrarConexionDB();
+                ListaEmpleados.Items.Refresh();
             }
         }
 

@@ -61,7 +61,9 @@ namespace Proyecto
             this.Close() ;
             
         }
-
+        public void EliminarEmpleado() {
+          
+        }
         
     }
 }
