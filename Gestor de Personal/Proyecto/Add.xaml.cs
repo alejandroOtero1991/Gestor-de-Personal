@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
-
+using System.Text.RegularExpressions;
 
 namespace Proyecto
 {
@@ -30,10 +30,13 @@ namespace Proyecto
             InitializeComponent();
         }
 
+        
         public Empleados DevolverEmpleado()
         {
+            
 
             e1 = new Empleados();
+       
             e1.IdEmpresa = int.Parse(txtId.Text);
             e1.Nombre = txtNombre.Text;
             e1.Apellidos = txtApellidos.Text;
@@ -42,9 +45,7 @@ namespace Proyecto
             e1.Edad = int.Parse(txtEdad.Text);
             e1.Baja = (bool)chkBaja.IsChecked;
             e1.Vacaciones = (bool)chkVacaciones.IsChecked;
-            e1.Activo = (bool)chkActivo.IsChecked;
-
-           
+            e1.Activo = (bool)chkActivo.IsChecked; 
             return e1;
             
         }
@@ -56,14 +57,32 @@ namespace Proyecto
             string query = "insert into [dbo].[Table] (id,DNI,Nombre,Apellidos,Edad,Antiguedad,Activo,Baja,Vacaciones) values('" + int.Parse(txtId.Text) + "','" + txtDni.Text + "','" + txtNombre.Text + "','" + txtApellidos.Text + "','" + int.Parse(txtEdad.Text) + "','" + int.Parse(txtAntiguedad.Text) + "','" + (bool)chkActivo.IsChecked + "','" + (bool)chkBaja.IsChecked + "','" + (bool)chkVacaciones.IsChecked + "')";
             conexionDb.ejecutarSql(query);
             conexionDb.CerrarConexionDB();
-
             DevolverEmpleado();
             this.Close() ;
-            
-        }
-        public void EliminarEmpleado() {
           
         }
-        
+
+      
+
+        private void TxtId_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (e.Text != "." && isNumber(e.Text) == false) {
+
+                e.Handled = true;
+            }
+            else if (e.Text==".") {
+                if (((TextBox)sender).Text.IndexOf(e.Text) >-1) {
+                    e.Handled = true;
+                }
+
+            }
+
+        }
+        public bool isNumber(string cadena) {
+
+            int output;
+            return int.TryParse(cadena, out output);
+
+        }
     }
 }

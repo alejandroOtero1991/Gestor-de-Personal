@@ -4,10 +4,11 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Proyecto
 {
-  public  class Empleados 
+  public  class Empleados : System.ComponentModel.INotifyPropertyChanged
     {
 
         private String nombre;
@@ -15,17 +16,23 @@ namespace Proyecto
         private String dni;
         private int edad, antiguedad,idEmpresa;
         private bool activo, baja, vacaciones;
-       
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public string Nombre {
 
             get { return nombre; }
             set {
                 nombre = value;
-                if (String.IsNullOrEmpty(value)) {
-                    value = "nombre incorrecto";
-                    
-                    //   throw new ApplicationException("Campo nombre necesario");
+                if (String.IsNullOrEmpty(value))
+                {
+                    nombre = "nombre incorrecto";
+
+
+                }
+                else {
+                    nombre = value;
+                    OnPropertyChanged("Nombre");
                 }
 
             }
@@ -37,10 +44,15 @@ namespace Proyecto
             get { return edad; }
 
             set {
-                
-                if (!Int32.TryParse(value.ToString(),out edad)) {
-                    value=0;
-                    //  throw new ApplicationException("Numero introducido no valido"); 
+
+                if (!Int32.TryParse(value.ToString(), out edad))
+                {
+                    edad = 0;
+                }
+                else {
+                    edad = value;
+                    OnPropertyChanged("Edad");
+
                 }
 
             }
@@ -56,8 +68,12 @@ namespace Proyecto
 
                 if (!Int32.TryParse(value.ToString(), out idEmpresa))
                 {
-                    value = 0;
-                    //  throw new ApplicationException("Numero introducido no valido"); 
+                    idEmpresa = 0;
+
+                }
+                else {
+                    idEmpresa = value;
+                    OnPropertyChanged("IdEmpresa");
                 }
 
             }
@@ -68,9 +84,13 @@ namespace Proyecto
 
             set {
                 dni = value;
-                if (value.Length <= 0 || value.Length > 9) {
-                     value="cadena no valida";
-                   // throw new ApplicationException("Dni introducido no valido");
+                if (value.Length <= 0 || value.Length > 9)
+                {
+                    dni = "cadena no valida";
+                }
+                else {
+                    dni = value;
+                    OnPropertyChanged("Dni");
                 }
             }
         }
@@ -84,9 +104,14 @@ namespace Proyecto
                 apellidos = value;
                 if (String.IsNullOrEmpty(value))
                 {
-                    value = "cadena no valida";
+                    apellidos = "cadena no valida";
 
-                    //   throw new ApplicationException("Campo apellidos necesario");
+
+                }
+                else {
+                    apellidos = value;
+                    OnPropertyChanged("Apellidos");
+
                 }
 
             }
@@ -106,8 +131,12 @@ namespace Proyecto
                 if (!Int32.TryParse(value.ToString(), out antiguedad))
                 {
 
-                    value = 0;
-                   // throw new ApplicationException("Numero introducido no valido");
+                    antiguedad = 0;
+
+                }
+                else {
+                    antiguedad = value;
+                    OnPropertyChanged("Antiguedad");
                 }
 
             }
@@ -116,6 +145,14 @@ namespace Proyecto
         public bool Activo { get => activo; set => activo = value; }
         public bool Baja { get => baja; set => baja = value; }
         public bool Vacaciones { get => vacaciones; set => vacaciones = value; }
+
+        protected void OnPropertyChanged(String propiedad) {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler!=null) {
+                handler(this, new PropertyChangedEventArgs(propiedad));
+            }
+
+        }
 
         public Empleados( String nombre, String apellidos, String dni, int edad, int antiguedad)
         {

@@ -41,6 +41,7 @@ namespace Proyecto
             ListaEmpleados.ItemsSource = dt.AsDataView();
             dt.AcceptChanges();
             conexionDb.CerrarConexionDB();
+           
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -50,8 +51,7 @@ namespace Proyecto
             ventanaAñadir = new Add();
             ventanaAñadir.ShowDialog();
             ListaEmpleados.Items.Add(ventanaAñadir.DevolverEmpleado());
-        
-          
+
         }
       
         
@@ -59,14 +59,12 @@ namespace Proyecto
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
 
-            if (ListaEmpleados.SelectedIndex > -1)
-            {
-
+      
                 conexionDb.GetSqlConexion();
                 conexionDb.ejecutarSql("delete from [dbo].[Table] where Id='" + int.Parse(txtEliminar.Text) + "'");
                 conexionDb.CerrarConexionDB();
                 ListaEmpleados.Items.Refresh();
-            }
+          
         }
 
 
@@ -77,6 +75,9 @@ namespace Proyecto
         {
             verTodo vt = new verTodo();
             vt.ShowDialog();
+            
         }
+
+       
     }
 }

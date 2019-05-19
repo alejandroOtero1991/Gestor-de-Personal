@@ -11,18 +11,21 @@
     <Grid RenderTransformOrigin="0.735,0.537">
 
         <Button Content="New" x:Name="Add" Margin="196,152,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.507,0.677" HorizontalAlignment="Left" Width="75" Click="Add_Click"/>
-        <ListBox x:Name="ListaEmpleados" HorizontalAlignment="Left" Height="384" Margin="15,35,0,0" VerticalAlignment="Top" Width="159" ItemsSource="{Binding ItemsSource, ElementName=ListaEmpleados}">
+        <ListBox x:Name="ListaEmpleados" HorizontalAlignment="Left" Height="384" Margin="15,35,0,0" VerticalAlignment="Top" Width="159" ItemsSource="{Binding ItemsSource, ElementName=ListaEmpleados}" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="0,2">
+                    <Grid Margin="0,2,15,2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" Tag="Id"/>
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="50" />
-                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="100" />
                         </Grid.ColumnDefinitions>
-                     
-                        <TextBlock Text="{Binding Nombre}" />
+                        <TextBlock Text="{Binding Id}" Grid.Row="0" Grid.Column="0"/>
+                       
+                        <TextBlock Text="{Binding Nombre}" Grid.Row="0" Grid.Column="1"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -43,7 +46,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="100" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="this.FindResource(Selected)" />
+                        <TextBlock Text="{Binding Nombre}" />
                         <TextBlock Text="{Binding Apellidos}" />
                     </Grid>
                 </DataTemplate>
