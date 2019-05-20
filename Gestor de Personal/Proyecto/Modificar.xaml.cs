@@ -24,11 +24,12 @@ namespace Proyecto
         public Modificar()
         {
             InitializeComponent();
+            gridTablaModificar.ItemsSource = conexionDb.GetTable("Select * from [dbo].[Table]").DefaultView;
         }
         public Empleados DevolverEmpleado()
         {
 
-
+            
             e1 = new Empleados();
             if (txtIdM.Text.Length < 1)
             {
@@ -132,12 +133,6 @@ namespace Proyecto
 
         }
 
-        private void LoadTableModficar_Click(object sender, RoutedEventArgs e)
-        {
-
-            conexionDb.GetSqlConexion();
-            gridTablaModificar.ItemsSource = conexionDb.GetTable("Select * from [dbo].[Table]").DefaultView;
-            conexionDb.CerrarConexionDB();
-        }
+       
     }
 }

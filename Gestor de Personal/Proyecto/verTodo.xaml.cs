@@ -25,14 +25,9 @@ namespace Proyecto
         public verTodo()
         {
             InitializeComponent();
+            gridTabla.ItemsSource = conexionDb.GetTable("Select * from [dbo].[Table]").DefaultView;
         }
 
-        private void LoadTable_Click(object sender, RoutedEventArgs e)
-        {
-            conexionDb.GetSqlConexion();
-            gridTabla.ItemsSource = conexionDb.GetTable("Select * from [dbo].[Table]").DefaultView;
-            conexionDb.CerrarConexionDB();
-           
-        }
+       
     }
 }
