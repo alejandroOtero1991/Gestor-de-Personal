@@ -49,8 +49,10 @@ namespace Proyecto
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             ventanaAñadir = new Add();
+            
             ventanaAñadir.ShowDialog();
-            ListaEmpleados.Items.Add(ventanaAñadir.DevolverEmpleado());
+         
+            //ListaEmpleados.Items.Add(ventanaAñadir.DevolverEmpleado().Nombre); //Me da error de que el itemsSource ya esta siendo utilizado
 
         }
       
@@ -78,6 +80,15 @@ namespace Proyecto
             
         }
 
-       
+        private void ListaEmpleados_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            ListaEmpleados.Items.Refresh();
+        }
+
+        private void BtnModificar_Click(object sender, RoutedEventArgs e)
+        {
+            Modificar m = new Modificar();
+            m.ShowDialog();
+        }
     }
 }

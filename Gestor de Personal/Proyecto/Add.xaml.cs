@@ -36,28 +36,68 @@ namespace Proyecto
             
 
             e1 = new Empleados();
-       
-            e1.IdEmpresa = int.Parse(txtId.Text);
-            e1.Nombre = txtNombre.Text;
-            e1.Apellidos = txtApellidos.Text;
-            e1.Dni = txtDni.Text;
-            e1.Antiguedad = int.Parse(txtAntiguedad.Text);
-            e1.Edad = int.Parse(txtEdad.Text);
-            e1.Baja = (bool)chkBaja.IsChecked;
-            e1.Vacaciones = (bool)chkVacaciones.IsChecked;
-            e1.Activo = (bool)chkActivo.IsChecked; 
-            return e1;
+            if (txtId.Text.Length < 1)
+            {
+                e1.IdEmpresa = 0;
+            }
+            else {
+                e1.IdEmpresa = int.Parse(txtId.Text);
+            }
+            if (txtNombre.Text.Length < 1)
+            {
+
+                e1.Nombre = "";
+            }
+            else {
+                e1.Nombre = txtNombre.Text;
+            }
+            if (txtApellidos.Text.Length <1) {
+
+                e1.Apellidos = "";
+            }
+            else {
+                e1.Apellidos = txtApellidos.Text;
+            }
+            if (txtDni.Text.Length <1) {
+                e1.Dni = "";
+            }
+            else {
+                e1.Dni = txtDni.Text;
+            }
+            if (txtAntiguedad.Text.Length <1) {
+                e1.Antiguedad = 0;
+            }
+            else {
+                e1.Antiguedad = int.Parse(txtAntiguedad.Text);
+            }
+
+            if (txtEdad.Text.Length <1) {
+                e1.Edad = 0;
+            }
+            else {
+                e1.Edad = int.Parse(txtEdad.Text);
+            }
+            if (btnCrear.IsEnabled)
+            {
+                e1.Baja = (bool)chkBaja.IsChecked;
+                e1.Vacaciones = (bool)chkVacaciones.IsChecked;
+                e1.Activo = (bool)chkActivo.IsChecked;
+            }
+                return e1;
+            
             
         }
 
       
         public void Añadir(object sender, RoutedEventArgs e)
         {
+            
+           
             conexionDb.GetSqlConexion();
             string query = "insert into [dbo].[Table] (id,DNI,Nombre,Apellidos,Edad,Antiguedad,Activo,Baja,Vacaciones) values('" + int.Parse(txtId.Text) + "','" + txtDni.Text + "','" + txtNombre.Text + "','" + txtApellidos.Text + "','" + int.Parse(txtEdad.Text) + "','" + int.Parse(txtAntiguedad.Text) + "','" + (bool)chkActivo.IsChecked + "','" + (bool)chkBaja.IsChecked + "','" + (bool)chkVacaciones.IsChecked + "')";
             conexionDb.ejecutarSql(query);
             conexionDb.CerrarConexionDB();
-            DevolverEmpleado();
+          
             this.Close() ;
           
         }
@@ -83,6 +123,10 @@ namespace Proyecto
             int output;
             return int.TryParse(cadena, out output);
 
+            
+
         }
+
+     
     }
 }
