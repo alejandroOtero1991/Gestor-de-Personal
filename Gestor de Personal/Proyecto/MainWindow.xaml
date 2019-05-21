@@ -35,7 +35,7 @@
 
                 <MenuItem x:Name="btnNew" Header="New" Click="Add_Click"/>
                 <MenuItem x:Name="Eliminar" Header="Eliminar" Click="BtnEliminar_Click"/>
-                <MenuItem x:Name="VerTodo" Header="btnVerTodo" Click="VerTodo_Click"/>
+                <MenuItem x:Name="VerTodo" Header="VerTodo" Click="VerTodo_Click"/>
                 <MenuItem x:Name="btnModificar" Header="Modificar" Click="BtnModificar_Click"/>
             </Menu>
         </DockPanel>
