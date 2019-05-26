@@ -23,17 +23,13 @@ namespace Proyecto.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\areku\\source\\repos\\" +
-            "Gestor-de-Personal\\Gestor de Personal\\Proyecto\\Database1.mdf\";Integrated Securit" +
-            "y=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\nData Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={0};Integrated Security=Tru" +
+            "e")]
         public string connectionString {
             get {
                 return ((string)(this["connectionString"]));
-            }
-            set {
-                this["connectionString"] = value;
             }
         }
     }

@@ -11,9 +11,12 @@ namespace Proyecto
    public static class conexionDb
     {
 
-        public static SqlConnection GetSqlConexion() {
+        
+        public static SqlConnection GetSqlConexion()
+        {
 
-            string conexion = Properties.Settings.Default.connectionString;
+            //string conexion = Properties.Settings.Default.connectionString;
+            string conexion =String.Format( Properties.Settings.Default.connectionString,Environment.CurrentDirectory + "\\Database1.mdf");
             SqlConnection conectar = new SqlConnection(conexion);
 
             if (conectar.State != ConnectionState.Open) {
@@ -35,8 +38,9 @@ namespace Proyecto
             
         }
         public static void CerrarConexionDB() {
-            string cadenaconexion = Properties.Settings.Default.connectionString;
-            SqlConnection connection = new SqlConnection(cadenaconexion);
+
+            SqlConnection connection = GetSqlConexion();
+            
             if (connection.State != ConnectionState.Closed) {
                 connection.Close();
 

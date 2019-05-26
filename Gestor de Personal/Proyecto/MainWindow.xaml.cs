@@ -26,11 +26,7 @@ namespace Proyecto
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-
-
-
-        
-        
+   
         public MainWindow()
         {
 
