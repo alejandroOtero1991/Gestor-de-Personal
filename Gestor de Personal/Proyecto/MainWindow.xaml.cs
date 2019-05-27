@@ -56,13 +56,15 @@ namespace Proyecto
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
-
-      
+            int vEliminar;
+            if (!(txtEliminar.Text.Equals(""))|| !(txtEliminar.Text.ToCharArray().Length<=0))
+            {
+                vEliminar=int.Parse(txtEliminar.Text);
                 conexionDb.GetSqlConexion();
-                conexionDb.ejecutarSql("delete from [dbo].[Table] where Id='" + int.Parse(txtEliminar.Text) + "'");
+                conexionDb.ejecutarSql("delete from [dbo].[Table] where Id='" + vEliminar + "'");
                 conexionDb.CerrarConexionDB();
                 ListaEmpleados.Items.Refresh();
-          
+            }
         }
 
 

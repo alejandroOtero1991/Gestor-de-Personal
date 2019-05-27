@@ -31,63 +31,17 @@ namespace Proyecto
 
             
             e1 = new Empleados();
-            if (txtIdM.Text.Length < 1)
-            {
-                e1.IdEmpresa = 0;
-            }
-            else
-            {
-                e1.IdEmpresa = int.Parse(txtIdM.Text);
-            }
-            if (txtNombreM.Text.Length < 1)
-            {
-
-                e1.Nombre = "";
-            }
-            else
-            {
+         
+               
                 e1.Nombre = txtNombreM.Text;
-            }
-            if (txtApellidosM.Text.Length < 1)
-            {
-
-                e1.Apellidos = "";
-            }
-            else
-            {
-                e1.Apellidos = txtApellidosM.Text;
-            }
-            if (txtDniM.Text.Length < 1)
-            {
-                e1.Dni = "";
-            }
-            else
-            {
+                e1.Apellidos = txtApellidosM.Text; 
                 e1.Dni = txtDniM.Text;
-            }
-            if (txtAntiguedadM.Text.Length < 1)
-            {
-                e1.Antiguedad = 0;
-            }
-            else
-            {
                 e1.Antiguedad = int.Parse(txtAntiguedadM.Text);
-            }
-
-            if (txtEdadM.Text.Length < 1)
-            {
-                e1.Edad = 0;
-            }
-            else
-            {
                 e1.Edad = int.Parse(txtEdadM.Text);
-            }
-            if (btnCrearM.IsEnabled)
-            {
                 e1.Baja = (bool)chkBajaM.IsChecked;
                 e1.Vacaciones = (bool)chkVacacionesM.IsChecked;
                 e1.Activo = (bool)chkActivoM.IsChecked;
-            }
+            
             return e1;
 
 
@@ -95,10 +49,69 @@ namespace Proyecto
 
         private void BtnCrearM_Click(object sender, RoutedEventArgs e)
         {
+            
+            string vDNI;
+            string vNombre;
+            string vApellidos;
+            int vEdad;
+            int vAntiguedad;
+            int vIdSeleccionar;
+            
+            if (!(txtIdSeleccionar.Text.Length <= 0))
+            {
+                vIdSeleccionar = int.Parse(txtIdSeleccionar.Text);
+            }
+            else {
+                vIdSeleccionar=0;
+            }
+            
+            if (!(txtDniM.Text.Length <=0)) {
+                 vDNI = txtDniM.Text;
+            }else
+            {
+                vDNI = "null";
+            }
+            if (!(txtNombreM.Text.Length <=0))
+            {
+                vNombre = txtNombreM.Text;
+            }
+            else {
+                vNombre = "null";
+            }
+            if (!(txtApellidosM.Text.Length <=0))
+            {
+                 vApellidos = txtApellidosM.Text;
+            }
+            else{
+                vApellidos = "null";
+            }
+            if (!(txtEdadM.Text.Length <=0))
+            {
+                if (!(txtEdadM.Text.Equals("")))
+                {
+                    
+                    vEdad = int.Parse(txtEdadM.Text);
+                }
+                else {
+                    vEdad = 0;
+                }
+            }
+            else {
+                vEdad = 0;
+            }
+            if (!(txtAntiguedadM.Text.Length <=0))
+            {
+                 vAntiguedad = int.Parse(txtAntiguedadM.Text);
+            }
+            else
+            {
+                vAntiguedad = 0;
+            }
+               
             conexionDb.GetSqlConexion();
-            string query = "update [dbo].[Table] set id='" + int.Parse(txtIdM.Text) + "',DNI='" + txtDniM.Text + "'," +
-           "Nombre='"+txtNombreM.Text+"',Apellidos='"+txtApellidosM.Text+"',Edad='"+ int.Parse(txtEdadM.Text)+"',Antiguedad='"+ int.Parse(txtAntiguedadM.Text)+"',Activo='"+ (bool)chkActivoM.IsChecked + "'," +
-           "Baja='"+ (bool)chkBajaM.IsChecked + "',Vacaciones='"+ (bool)chkVacacionesM.IsChecked + "'where id='"+int.Parse(txtIdSeleccionar.Text)+"'";
+            string query = "update [dbo].[Table] set DNI='" + vDNI+ "'," +
+           "Nombre='"+vNombre+"',Apellidos='"+vApellidos+"',Edad='"+vEdad+"',Antiguedad='"+vAntiguedad+"',Activo='"+ (bool)chkActivoM.IsChecked + "'," +
+           "Baja='"+ (bool)chkBajaM.IsChecked + "',Vacaciones='"+ (bool)chkVacacionesM.IsChecked + "'where id='"+vIdSeleccionar+ "'";
             conexionDb.ejecutarSql(query);
             conexionDb.CerrarConexionDB();
 
@@ -108,7 +121,7 @@ namespace Proyecto
 
         private void TxtIdM_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (e.Text != "." && isNumber(e.Text) == false)
+            if (e.Text != "." && isNumber(e.Text) == false ||e.Text==null)
             {
 
                 e.Handled = true;
@@ -133,6 +146,7 @@ namespace Proyecto
 
         }
 
-       
+      
+        
     }
 }
