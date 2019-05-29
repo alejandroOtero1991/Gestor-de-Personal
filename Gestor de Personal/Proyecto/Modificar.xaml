@@ -23,7 +23,7 @@
         <CheckBox x:Name="chkBajaM" Content="Baja" IsThreeState="True" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top" IsChecked="False"/>
         <CheckBox x:Name="chkVacacionesM" Content="Vacaciones" IsThreeState="True"  HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" IsChecked="False"/>
         <Label Content="Id a Modificar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0"/>
-        <TextBox  x:Name="txtIdSeleccionar"  HorizontalAlignment="Left" Height="23" Margin="105,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" PreviewTextInput="TxtIdM_PreviewTextInput" MinLines="1" MaxLength="10"/>
+        <TextBox  x:Name="txtIdSeleccionar"  HorizontalAlignment="Left" Height="23" Margin="105,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" PreviewTextInput="TxtIdM_PreviewTextInput" MinLines="1" MaxLength="3"/>
 
     </Grid>
 </Window>

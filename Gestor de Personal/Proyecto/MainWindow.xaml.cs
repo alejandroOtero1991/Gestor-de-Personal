@@ -88,5 +88,29 @@ namespace Proyecto
             Modificar m = new Modificar();
             m.ShowDialog();
         }
+
+        private void MainEliminar_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int asci = Convert.ToInt32(Convert.ToChar(e.Text));
+            //if (e.Text != "." && isNumber(e.Text) == false)
+            //{
+
+            //    e.Handled = true;
+            //}
+           if (!(asci >= 48 && asci <= 57))
+            {
+                e.Handled = true;
+            }
+
+        }
+        public bool isNumber(string cadena)
+        {
+
+            int output;
+            return int.TryParse(cadena, out output);
+
+
+
+        }
     }
 }

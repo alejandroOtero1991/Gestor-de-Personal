@@ -107,33 +107,38 @@ namespace Proyecto
             {
                 vAntiguedad = 0;
             }
-               
-            conexionDb.GetSqlConexion();
-            string query = "update [dbo].[Table] set DNI='" + vDNI+ "'," +
-           "Nombre='"+vNombre+"',Apellidos='"+vApellidos+"',Edad='"+vEdad+"',Antiguedad='"+vAntiguedad+"',Activo='"+ (bool)chkActivoM.IsChecked + "'," +
-           "Baja='"+ (bool)chkBajaM.IsChecked + "',Vacaciones='"+ (bool)chkVacacionesM.IsChecked + "'where id='"+vIdSeleccionar+ "'";
-            conexionDb.ejecutarSql(query);
-            conexionDb.CerrarConexionDB();
-
-            this.Close();
+            if (!(txtAntiguedadM.Text.Length <= 0 || txtApellidosM.Text.Length <= 0 || txtDniM.Text.Length <= 0 || txtEdadM.Text.Length <= 0 || txtNombreM.Text.Length <= 0 || txtIdSeleccionar.Text.Length <= 0))
+            {
+                conexionDb.GetSqlConexion();
+                string query = "update [dbo].[Table] set DNI='" + vDNI + "'," +
+               "Nombre='" + vNombre + "',Apellidos='" + vApellidos + "',Edad='" + vEdad + "',Antiguedad='" + vAntiguedad + "',Activo='" + (bool)chkActivoM.IsChecked + "'," +
+               "Baja='" + (bool)chkBajaM.IsChecked + "',Vacaciones='" + (bool)chkVacacionesM.IsChecked + "'where id='" + vIdSeleccionar + "'";
+                conexionDb.ejecutarSql(query);
+                conexionDb.CerrarConexionDB();
+                this.Close();
+            }
+            else {
+                this.Close();
+            }
+            
 
         }
 
         private void TxtIdM_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
+            int asci = Convert.ToInt32(Convert.ToChar(e.Text));
             if (e.Text != "." && isNumber(e.Text) == false ||e.Text==null)
             {
 
                 e.Handled = true;
             }
-            else if (e.Text == ".")
+           
+          
+            if (!(asci >= 48 && asci <= 57))
             {
-                if (((TextBox)sender).Text.IndexOf(e.Text) > -1)
-                {
-                    e.Handled = true;
-                }
-
+                e.Handled = true;
             }
+
 
         }
         public bool isNumber(string cadena)
