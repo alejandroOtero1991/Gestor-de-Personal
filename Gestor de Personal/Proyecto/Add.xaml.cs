@@ -86,8 +86,9 @@ namespace Proyecto
 
         private void TxtId_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            int asci = Convert.ToInt32(Convert.ToChar(e.Text));
-            if (e.Text != "." && isNumber(e.Text) == false)
+            
+            int asci = Convert.ToInt32(Convert.ToChar(e.Text));    
+            if (e.Text != " " && isNumber(e.Text) == false)
             {
 
                 e.Handled = true;
@@ -97,7 +98,9 @@ namespace Proyecto
             {
                 e.Handled = true;
             }
-
+           
+            
+            
         }
         public bool isNumber(string cadena)
         {
@@ -108,7 +111,15 @@ namespace Proyecto
 
 
         }
+    
 
-
+        private void OnPreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+            base.OnPreviewKeyDown(e);
+        }
     }
 }

@@ -147,11 +147,16 @@ namespace Proyecto
             int output;
             return int.TryParse(cadena, out output);
 
-
-
+        }
+        private void OnPreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+            base.OnPreviewKeyDown(e);
         }
 
-      
-        
+
     }
 }

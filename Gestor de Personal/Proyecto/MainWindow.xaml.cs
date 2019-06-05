@@ -92,12 +92,12 @@ namespace Proyecto
         private void MainEliminar_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             int asci = Convert.ToInt32(Convert.ToChar(e.Text));
-            //if (e.Text != "." && isNumber(e.Text) == false)
-            //{
+            if (e.Text != "." && isNumber(e.Text) == false)
+            {
 
-            //    e.Handled = true;
-            //}
-           if (!(asci >= 48 && asci <= 57))
+                e.Handled = true;
+            }
+            if (!(asci >= 48 && asci <= 57))
             {
                 e.Handled = true;
             }
@@ -108,9 +108,14 @@ namespace Proyecto
 
             int output;
             return int.TryParse(cadena, out output);
-
-
-
+        }
+        private void OnPreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+            base.OnPreviewKeyDown(e);
         }
     }
 }

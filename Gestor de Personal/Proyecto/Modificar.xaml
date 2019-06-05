@@ -16,14 +16,14 @@
         <TextBox x:Name="txtNombreM" HorizontalAlignment="Left" Height="23" Margin="105,100,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="False" MinLines="1" MaxLength="20"/>
         <TextBox x:Name="txtApellidosM" HorizontalAlignment="Left" Height="23" Margin="105,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="False" MinLines="1" MaxLength="20"/>
         <TextBox x:Name="txtDniM" HorizontalAlignment="Left" Height="23" Margin="105,156,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="False"  MaxLength="9" MinLines="1"/>
-        <TextBox x:Name="txtEdadM" HorizontalAlignment="Left" Height="23" Margin="105,184,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="False" PreviewTextInput="TxtIdM_PreviewTextInput" MinLines="1" MaxLength="2"/>
-        <TextBox x:Name="txtAntiguedadM" HorizontalAlignment="Left" Height="23" Margin="105,212,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" PreviewTextInput="TxtIdM_PreviewTextInput" MinLines="1" MaxLength="2"/>
+        <TextBox x:Name="txtEdadM" HorizontalAlignment="Left" Height="23" Margin="105,184,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" AutomationProperties.IsRequiredForForm="False" PreviewTextInput="TxtIdM_PreviewTextInput" MinLines="1" MaxLength="2" PreviewKeyDown="OnPreviewKeyDown"/>
+        <TextBox x:Name="txtAntiguedadM" HorizontalAlignment="Left" Height="23" Margin="105,212,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.502,0.473" PreviewTextInput="TxtIdM_PreviewTextInput" MinLines="1" MaxLength="2" PreviewKeyDown="OnPreviewKeyDown"/>
         <Button x:Name="btnCrearM" Content="Modificar" HorizontalAlignment="Left"  Margin="105,275,0,0" VerticalAlignment="Top" Width="75" Click="BtnCrearM_Click" IsCancel="False" IsDefault="True"/>
         <CheckBox x:Name="chkActivoM" Content="Activo" IsThreeState="True" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" IsChecked="True"/>
         <CheckBox x:Name="chkBajaM" Content="Baja" IsThreeState="True" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top" IsChecked="False"/>
         <CheckBox x:Name="chkVacacionesM" Content="Vacaciones" IsThreeState="True"  HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" IsChecked="False"/>
         <Label Content="Id a Modificar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0"/>
-        <TextBox  x:Name="txtIdSeleccionar"  HorizontalAlignment="Left" Height="23" Margin="105,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" PreviewTextInput="TxtIdM_PreviewTextInput" MinLines="1" MaxLength="3"/>
+        <TextBox  x:Name="txtIdSeleccionar"  HorizontalAlignment="Left" Height="23" Margin="105,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" PreviewTextInput="TxtIdM_PreviewTextInput" MinLines="1" MaxLength="3" PreviewKeyDown="OnPreviewKeyDown"/>
 
     </Grid>
 </Window>
